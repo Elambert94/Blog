@@ -1,199 +1,166 @@
-# Zen Theme
+# AstroPaper 📄
 
-A clean, modern Astro blog theme with excellent readability and beautiful typography.
+![AstroPaper](public/default-og.jpg)
+[![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1356898632249991861)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![GitHub](https://img.shields.io/github/license/satnaing/astro-paper?color=%232F3741&style=for-the-badge)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white&style=for-the-badge)](https://conventionalcommits.org)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
 
-## Features
+AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme is designed and crafted based on [my personal blog](https://satnaing.dev/blog).
 
-- 🎨 **Clean Design**: Minimalistic design with warm orange accents
-- 🔤 **Inter Font**: Optimal readability with Inter typeface
-- 🎯 **Responsive Design**: Fully responsive for mobile and desktop
-- 🌙 **Dark Mode**: Automatic theme switching based on time and user preference
-- 🔍 **Search**: Built-in search functionality with Pagefind
-- 📝 **Markdown Support**: Full markdown support
-- 📊 **Beautiful Tables**: Styled tables with hover effects
-- 📱 **Sidebar TOC**: Fixed table of contents for easy navigation
-- ⬆️ **Back to Top**: Smooth scroll back to top button
-- 🏷️ **Tag Pages**: Browse posts by tags
-- 📅 **Year Grouping**: Blog posts organized by year
+Read [the blog posts](https://astro-paper.pages.dev/posts/) or check [the README Documentation Section](#-documentation) for more info.
 
-## Tech Stack
+## 🔥 Features
 
-- **Astro** - Static site generator
-- **Pagefind** - Search functionality
-- **Inter Font** - Typography
+- [x] type-safe markdown
+- [x] super fast performance
+- [x] accessible (Keyboard/VoiceOver)
+- [x] responsive (mobile ~ desktops)
+- [x] SEO-friendly
+- [x] light & dark mode
+- [x] static search ([Pagefind](https://pagefind.app/))
+- [x] draft posts & pagination
+- [x] sitemap & rss feed
+- [x] MDX support
+- [x] collapsible table of contents
+- [x] followed best practices
+- [x] highly customizable
+- [x] dynamic OG image generation for blog posts ([Blog Post](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/))
+- [x] i18n ready
 
-## Getting Started
+_Note: I've tested screen-reader accessibility of AstroPaper using **VoiceOver** on Mac and **TalkBack** on Android. I couldn't test all other screen-readers out there. However, accessibility enhancements in AstroPaper should be working fine on others as well._
 
-### Prerequisites
+## ✅ Lighthouse Score
 
-- Node.js (v22.12.0 or higher)
-- npm or yarn package manager
+<p align="center">
+  <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fastro-paper.pages.dev%2F&form_factor=desktop">
+    <img width="710" alt="AstroPaper Lighthouse Score" src="AstroPaper-lighthouse-score.svg">
+  </a>
+</p>
 
-### Installation
+## 🚀 Project Structure
 
-```bash
-# Clone the repository
-git clone https://github.com/Secd0g/zen
-
-# Navigate to the project directory
-cd zen
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-### Build for Production
+Inside of AstroPaper, you'll see the following folders and files:
 
 ```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
-## Project Structure
-
-```
+/
+├── public/
+│   ├── pagefind/          # auto-generated on build
+│   ├── favicon.svg
+│   └── default-og.jpg
 ├── src/
-│   ├── components/          # Reusable components
-│   │   ├── BaseHead.astro   # Base head component
-│   │   ├── Code.astro       # Code block component
-│   │   ├── Footer.astro     # Footer component
-│   │   ├── FormattedDate.astro # Date formatting
-│   │   ├── Header.astro     # Header component
-│   │   ├── HeaderLink.astro # Header link component
-│   │   └── SearchModal.astro # Search modal component
-│   ├── content/            # Blog content
-│   │   └── blog/           # Blog posts
-│   ├── layouts/            # Page layouts
-│   │   └── BlogPost.astro   # Blog post layout
-│   ├── pages/              # Page routes
-│   │   ├── blog/           # Blog listing (index.astro)
-│   │   ├── tags/           # Tag pages (index.astro, [tag].astro)
-│   │   ├── about.astro     # About page
-│   │   └── index.astro     # Home page
-│   └── consts.ts           # Site constants
-├── astro.config.mjs        # Astro configuration
-├── package.json            # Project dependencies
-└── README.md               # This file
+│   ├── assets/
+│   │   ├── icons/
+│   │   └── images/
+│   ├── components/
+│   ├── content/
+│   │   ├── pages/
+│   │   │   └── about.md
+│   │   └── posts/
+│   │       └── some-blog-posts.md
+│   ├── i18n/
+│   ├── layouts/
+│   ├── pages/
+│   ├── scripts/
+│   ├── styles/
+│   ├── types/
+│   ├── utils/
+│   ├── config.ts
+│   └── content.config.ts
+├── astro-paper.config.ts  # user-defined configurations
+└── astro.config.ts
 ```
 
-## Configuration
+All blog posts are stored in the `src/content/posts/` directory. You can organise posts into subdirectories — the subdirectory name becomes part of the post URL.
 
-### Site Metadata
+## 📖 Documentation
 
-Edit `src/consts.ts` to configure your site:
+Documentation can be read in two formats\_ _markdown_ & _blog post_.
 
-```typescript
-export const SITE_TITLE = 'Zen Theme Blog';
-export const SITE_DESCRIPTION = 'A clean, modern blog theme with excellent readability.';
-export const AUTHOR_NAME = 'Your Name';
+- Configuration - [markdown](src/content/posts/how-to-configure-astropaper-theme.md) | [blog post](https://astro-paper.pages.dev/posts/how-to-configure-astropaper-theme/)
+- Add Posts - [markdown](src/content/posts/adding-new-post.md) | [blog post](https://astro-paper.pages.dev/posts/adding-new-posts-in-astropaper-theme/)
+- Customize Color Schemes - [markdown](src/content/posts/customizing-astropaper-theme-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/)
+- Predefined Color Schemes - [markdown](src/content/posts/predefined-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/predefined-color-schemes/)
 
-export const SOCIAL_LINKS = {
-  github: 'https://github.com/Secd0g/zen',
-  twitter: 'https://twitter.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
-  email: 'mailto:your@email.com',
-};
+## 💻 Tech Stack
+
+**Main Framework** - [Astro](https://astro.build/)  
+**Type Checking** - [TypeScript](https://www.typescriptlang.org/)  
+**Styling** - [TailwindCSS](https://tailwindcss.com/)  
+**UI/UX** - [Figma Design File](https://www.figma.com/community/file/1356898632249991861)  
+**Static Search** - [Pagefind](https://pagefind.app/)  
+**Icons** - [Tablers](https://tabler-icons.io/)  
+**Code Formatting** - [Prettier](https://prettier.io/)  
+**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)  
+**Linting** - [ESLint](https://eslint.org)  
+**Dynamic OG images** - [Satori](https://github.com/vercel/satori) + [Sharp](https://sharp.pixelplumbing.com/) + [Astro Fonts](https://docs.astro.build/en/guides/fonts/)
+
+## 👨🏻‍💻 Running Locally
+
+You can start using this project locally by running the following command in your desired directory:
+
+```bash
+# pnpm
+pnpm create astro@latest --template satnaing/astro-paper
+
+# npm
+npm create astro@latest -- --template satnaing/astro-paper
+
+# yarn
+yarn create astro --template satnaing/astro-paper
+
+# bun
+bun create astro@latest -- --template satnaing/astro-paper
 ```
 
-### Theme Variables
+Then start the project by running the following commands:
 
-Theme colors are defined in `src/layouts/BlogPost.astro`:
+```bash
+# install dependencies if you haven't done so in the previous step.
+pnpm install
 
-```css
-:root {
-  --accent: #F97316;          /* Primary color */
-  --accent-hover: #EA580C;     /* Accent hover */
-  --accent-light: #FDBA74;     /* Light accent */
-  --text-primary: #18181B;     /* Primary text */
-  --text-secondary: #3F3F46;   /* Secondary text */
-  --text-muted: #71717A;       /* Muted text */
-  --bg-primary: #FFFFFF;       /* Background */
-  --bg-secondary: #FAFAFA;     /* Secondary background */
-  --bg-tertiary: #F5F5F5;      /* Tertiary background */
-  --border-color: #E4E4E7;     /* Border color */
-  --body-font-size: 17px;      /* Body font size */
-}
+# start running the project
+pnpm dev
 ```
 
-### Adding Blog Posts
+## Google Site Verification (optional)
 
-Create new markdown files in `src/content/blog/`:
+You can add your [Google Site Verification HTML tag](https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag) by setting `site.googleVerification` in `astro-paper.config.ts`:
 
-```markdown
+```ts file="astro-paper.config.ts"
+export default defineAstroPaperConfig({
+  site: {
+    // ...
+    googleVerification: "your-google-site-verification-value",
+  },
+  // ...
+});
+```
+
+> See [this discussion](https://github.com/satnaing/astro-paper/discussions/334#discussioncomment-10139247) for adding AstroPaper to the Google Search Console.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command          | Action                                                                                                                           |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm install`   | Installs dependencies                                                                                                            |
+| `pnpm dev`       | Starts local dev server at `localhost:4321`                                                                                      |
+| `pnpm build`     | Type-checks, builds the site, runs Pagefind indexing, and copies the index to `public/pagefind/`                                 |
+| `pnpm preview`   | Preview your build locally, before deploying                                                                                     |
+| `pnpm sync`      | Generates TypeScript types for all Astro modules. [Learn more](https://docs.astro.build/en/reference/cli-reference/#astro-sync). |
+| `pnpm astro ...` | Run CLI commands like `astro add`, `astro check`                                                                                 |
+
+## ✨ Feedback & Suggestions
+
+If you have any suggestions/feedback, you can contact me via [my email](mailto:satnaingdev+astropaper@gmail.com). Alternatively, feel free to open an issue if you find bugs or want to request new features.
+
+## 📜 License
+
+Licensed under the MIT License, Copyright © 2026
+
 ---
-title: Post Title
-description: Post description
-pubDate: 2026-05-14
-tags: ["tag1", "tag2"]
----
 
-Your content here...
-```
-
-## Customization
-
-### Changing Colors
-
-Modify the CSS variables in `src/layouts/BlogPost.astro`:
-
-- `--accent`: Primary accent color (default: #F97316)
-- `--text-primary`: Main text color
-- `--bg-primary`: Background color
-- `--border-color`: Border color
-
-### Changing Fonts
-
-The theme uses Inter font by default. You can change the font in `src/layouts/BlogPost.astro`:
-
-```css
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-```
-
-## Features Overview
-
-### Typography
-- Inter font family for optimal readability
-- Line height: 1.9 for comfortable reading
-- Letter spacing: -0.01em for better text density
-- Font size: 17px for body text
-
-### Color Scheme
-
-**Light Mode:**
-- Primary: #F97316 (Warm Orange)
-- Background: #FFFFFF
-- Text: #18181B, #3F3F46, #71717A
-
-**Dark Mode:**
-- Primary: #FB923C (Lighter Orange)
-- Background: #18181B
-- Text: #FAFAFA, #D4D4D8, #71717A
-
-### Layout
-- Content Width: 700px for optimal reading line length
-- Responsive Design: Works on all screen sizes
-- Sidebar TOC: Fixed table of contents for long articles
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is open source and available for personal use.
-
-## Acknowledgments
-
-- Built with [Astro](https://astro.build/)
-- Search powered by [Pagefind](https://pagefind.app/)
-- Font by [Inter](https://fonts.google.com/specimen/Inter)
+Made with 🤍 by [Sat Naing](https://satnaing.dev) 👨🏻‍💻 and [contributors](https://github.com/satnaing/astro-paper/graphs/contributors).
